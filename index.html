@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+
+  <title>Frontend Mentor | Ping coming soon page</title>
+
+</head>
+<body>
+  <div class="container">
+    <header>
+      <img src="images/logo.svg" alt="logo">
+    </header>
+    
+    <div class="letters">
+      <h1>We are launching <span>soon!</span></h1>
+      <p>Subscribe and get notified</p>
+    </div>
+    
+    <form class="input" onsubmit="return validate()" action="email_valid.html">
+      <input id="email" type=text placeholder="Your email address..">
+      <p id="errorMsg">Please provide a valid email address</p>
+      <button id="button" type="submit">Notify Me</button>
+    </form>
+
+    <img class="dashboard" src="images/illustration-dashboard.png" alt="dashboard">
+    
+    <div class="sns">
+      <ul>
+        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+      </ul>
+    </div>
+
+    
+    <footer>
+      <p class="copyright">&copy; Copyright Ping. All rights reserved.</p>
+      <p class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+        Coded by <a href="#">takameg</a>.
+      </p>
+    </footer>
+  </div>  
+
+  <script type="text/javascript">
+
+    var email = document.getElementById("email");
+    var errorMsg = document.getElementById("errorMsg");
+    var button = document.getElementById("button");
+    var reg = /^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]{1,}\.[A-Za-z0-9]{1,}$/;
+    
+    // onclick validation
+    function validate() {
+      if(reg.test(email.value)) {
+        return true;
+      } else {
+          return false;
+        }
+    }
+    
+    // hover errorMsg
+    button.addEventListener("mouseover", function(){
+      if(reg.test(email.value)==false) {
+        email.style.border = "1px solid #e74152";
+        errorMsg.style.display = "block";
+      }
+    }, false);
+
+    button.addEventListener("mouseout", function(){
+    email.style.border = "1px solid #b6c9fa";
+    errorMsg.style.display = "none";
+    }, false);
+
+    
+  
+  </script>
+</body>
+</html>
+
